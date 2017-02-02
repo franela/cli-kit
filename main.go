@@ -36,18 +36,13 @@ func loadPlugins(cmd *cobra.Command) {
 		log.Fatal(err)
 	}
 
-	homedir := u.HomeDir
-
-	// Remove this hack
-	homedir = "/home/jonas"
-
-	files, err := ioutil.ReadDir(fmt.Sprintf("%s/.%s/plugins", homedir, cmd.Use))
+	files, err := ioutil.ReadDir(fmt.Sprintf("%s/.%s/plugins", u.HomeDir, cmd.Use))
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, file := range files {
-		p, err := plugin.Open(fmt.Sprintf("%s/.%s/plugins/%s", homedir, cmd.Use, file.Name()))
+		p, err := plugin.Open(fmt.Sprintf("%s/.%s/plugins/%s", u.HomeDir, cmd.Use, file.Name()))
 		if err != nil {
 			log.Fatal(err)
 		}
