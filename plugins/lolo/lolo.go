@@ -1,7 +1,9 @@
 package main
 
 import (
+	"C"
 	"log"
+	_ "net/http"
 
 	"github.com/spf13/cobra"
 )
@@ -12,7 +14,7 @@ func DescribeCommands() []*cobra.Command {
 		Short: "mtk",
 		Long:  `Deploy lots of shit`,
 		Run: func(cmd *cobra.Command, args []string) {
-			log.Println("mtk")
+			log.Println("dssddsds")
 		},
 	}
 
